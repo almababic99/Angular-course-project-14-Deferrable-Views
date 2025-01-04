@@ -41,11 +41,11 @@
   </p>
 </section>
 
-@defer(on viewport){
+<!-- @defer(on viewport){
   <app-offer-preview />
 } @placeholder {
   <p>We might have an offer...</p>
-}
+} -->
 <!-- Deferrable Views refer to the concept of loading or rendering parts of a webpage or application only when necessary — 
  usually when those parts become visible in the user's viewport (the visible area of the screen). -->
 <!-- This is used for lazy loading. -->
@@ -55,3 +55,13 @@
 <!-- @defer(on viewport): The <app-offer-preview /> component will only be loaded when it enters the viewport. -->
 <!-- @placeholder: Until the <app-offer-preview /> is loaded, a simple placeholder text ("We might have an offer...") will be shown, 
  indicating to the user that additional content is on the way. -->
+
+ @defer(on interaction){
+  <app-offer-preview />
+} @placeholder {
+  <p class="fallback">We might have an offer...</p>
+}
+<!-- @defer(on interaction): The component <app-offer-preview /> will now be deferred until the user interacts with the page. -->
+<!-- While the deferred component <app-offer-preview /> is loading due to the interaction trigger, the placeholder 
+ (<p class="fallback">We might have an offer...</p>) will be shown. -->
+<!-- When user click on <p class="fallback">We might have an offer...</p> the offer will be shown. -->
