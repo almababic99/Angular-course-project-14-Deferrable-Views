@@ -41,4 +41,17 @@
   </p>
 </section>
 
-<app-offer-preview />
+@defer(on viewport){
+  <app-offer-preview />
+} @placeholder {
+  <p>We might have an offer...</p>
+}
+<!-- Deferrable Views refer to the concept of loading or rendering parts of a webpage or application only when necessary — 
+ usually when those parts become visible in the user's viewport (the visible area of the screen). -->
+<!-- This is used for lazy loading. -->
+<!-- In a deferrable view approach, content like images or complex components are loaded as the user scrolls down the page, 
+ instead of loading everything when the page first loads. -->
+
+<!-- @defer(on viewport): The <app-offer-preview /> component will only be loaded when it enters the viewport. -->
+<!-- @placeholder: Until the <app-offer-preview /> is loaded, a simple placeholder text ("We might have an offer...") will be shown, 
+ indicating to the user that additional content is on the way. -->
