@@ -56,12 +56,26 @@
 <!-- @placeholder: Until the <app-offer-preview /> is loaded, a simple placeholder text ("We might have an offer...") will be shown, 
  indicating to the user that additional content is on the way. -->
 
- @defer(on interaction){
+ <!-- @defer(on interaction){
   <app-offer-preview />
 } @placeholder {
   <p class="fallback">We might have an offer...</p>
-}
+} -->
 <!-- @defer(on interaction): The component <app-offer-preview /> will now be deferred until the user interacts with the page. -->
 <!-- While the deferred component <app-offer-preview /> is loading due to the interaction trigger, the placeholder 
  (<p class="fallback">We might have an offer...</p>) will be shown. -->
 <!-- When user click on <p class="fallback">We might have an offer...</p> the offer will be shown. -->
+
+@defer(on interaction; prefetch on hover ){
+  <app-offer-preview />
+} @placeholder {
+  <p class="fallback">We might have an offer...</p>
+}
+<!-- prefetch on hover: This additional modifier indicates that while the content will only be shown upon interaction, 
+ it will start prefetching (loading in the background) when the user hovers over a particular element. 
+ This prefetching is a performance optimization—while the content is not yet shown, the browser will start loading it in the 
+ background when the user hovers over a related area, so it's ready when they actually interact with it. -->
+<!-- When the user hovers over a specified element (the one tied to the <app-offer-preview />), the browser will begin fetching 
+ the content in advance (i.e., prefetching it).
+The content will still only be shown when the user interacts with the page (clicks the paragraph). The prefetch ensures that the 
+content is loaded and ready without delay, enhancing the user experience. -->
